@@ -7,4 +7,5 @@ class Calc
   def price(x, tax)
      x * (1 + tax)
   end
+
 end

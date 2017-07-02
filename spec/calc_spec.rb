@@ -1,21 +1,47 @@
 require 'calc'
 
+RSpec.shared_examples "basic functions" do # include
+  it "can add"
+  it "can subtrace"
+  it "can multiply"
+  it "can divide"
+end
+
 RSpec.describe Calc do
 #  before do #(:example)
 #    @calc = Calc.new
 #  end
 
+# # test double
+# # method stub
+#   it {
+#     use = double('user')
+#     allow(user).to receive(:name).and_return('taguchi')
+#     # user.name -> taguchi
+#     expect(calc.add(5,2, user.name)).to eq('7 by taguchi')
+#   }
+# # message expectation 呼ばれなかったらFail
+#   it {
+#     logger = double('logger')
+#     expect(logger).to receive(:log)
+#     calc = Cal.new
+#     expect(calc.add(5,2)).to eq(7)
+#   }
+
+
   # subject
   subject(:calc) { Calc.new }
 
   # let
+  # 1. exampleごとに結果がキャッシュされる
+  # 2. 遅延評価
   context "tax 5%" do
     let(:tax) { 0.05 }
     it { expect(calc.price(100, tax)).to eq(105) }
   end
 
   context "tax 8%" do
-    let(:tax) { 0.08 }    
+    let(:tax) { 0.08 }
     it { expect(calc.price(100, tax)).to eq(108) }
   end
 
